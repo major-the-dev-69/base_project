@@ -7,13 +7,13 @@ import 'dart:io';
 /// Pass --force to overwrite existing files.
 const List<String> features = [
   'auth',
-  'call',
   'history',
   'init',
   'member',
   'purchase',
   'setting',
   'wallet',
+  'shop',
 ];
 
 void main(List<String> args) {
@@ -88,7 +88,7 @@ import 'package:go_service/features/$feature/presentation/controller/${feature}_
 class ${pascal}Binding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<${pascal}Repo>(() => ${pascal}Repo());
+    Get.lazyPut<${pascal}Repo>(() => ${pascal}RepoImpl());
     Get.lazyPut<${pascal}Controller>(
       () => ${pascal}Controller(repo: Get.find<${pascal}Repo>()),
     );
@@ -118,7 +118,8 @@ String _repoTemplate(String pascal) {
   return '''import 'package:go_service/base/base_repository.dart';
 
 abstract class ${pascal}Repo extends BaseRepository {}
-class ${pascal}RepoImpl implements class ${pascal}Repo {}
+
+class ${pascal}RepoImpl implements ${pascal}Repo {}
 ''';
 }
 

@@ -27,7 +27,7 @@ class SessionService extends GetxService {
   final RxBool isDutyActive = false.obs;
   final RxBool isOnBreak = false.obs;
 
-  final Rx<ThemeMode> themeMode = ThemeMode.light.obs;
+  final themeMode = ThemeMode.light.obs;
 
   // Session status
   bool get isLoggedIn => authToken.value.isNotEmpty;
@@ -85,7 +85,7 @@ class SessionService extends GetxService {
     }
 
     // Prevent inconsistent session state.
-    if (!isLoggedIn) {
+    if (isLoggedIn == false) {
       currentUser.value = null;
       isDutyActive.value = false;
       isOnBreak.value = false;

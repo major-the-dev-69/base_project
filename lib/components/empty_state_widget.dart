@@ -35,11 +35,7 @@ class EmptyStateWidget extends StatelessWidget {
                 color: colorScheme.primaryContainer.withValues(alpha: 0.5),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
-                icon,
-                size: 40,
-                color: colorScheme.primary,
-              ),
+              child: Icon(icon, size: 40, color: colorScheme.primary),
             ),
             const SizedBox(height: 16),
             Text(
@@ -64,10 +60,7 @@ class EmptyStateWidget extends StatelessWidget {
               const SizedBox(height: 20),
               SizedBox(
                 width: 180,
-                child: AppButton(
-                  title: actionTitle!,
-                  onTap: onAction,
-                ),
+                child: AppButton(title: actionTitle!, onTap: onAction),
               ),
             ],
           ],

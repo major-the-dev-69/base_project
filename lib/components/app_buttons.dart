@@ -21,7 +21,7 @@ class AppButton extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     VoidCallback? effectiveOnTap;
-    if (!isLoading) {
+    if (isLoading == false) {
       effectiveOnTap = onTap;
     }
 

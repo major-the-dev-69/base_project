@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Centralized themed button supporting primary, outlined, and loading states.
 class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
@@ -36,35 +35,23 @@ class AppButton extends StatelessWidget {
       child = SizedBox(
         height: 20,
         width: 20,
-        child: CircularProgressIndicator(
-          strokeWidth: 2.2,
-          color: spinnerColor,
-        ),
+        child: CircularProgressIndicator(strokeWidth: 2.2, color: spinnerColor),
       );
     } else {
       child = Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (icon != null) ...[
-            icon!,
-            const SizedBox(width: 8),
-          ],
+          if (icon != null) ...[icon!, const SizedBox(width: 8)],
           Text(title),
         ],
       );
     }
 
     if (isOutlined) {
-      return OutlinedButton(
-        onPressed: effectiveOnTap,
-        child: child,
-      );
+      return OutlinedButton(onPressed: effectiveOnTap, child: child);
     }
 
-    return ElevatedButton(
-      onPressed: effectiveOnTap,
-      child: child,
-    );
+    return ElevatedButton(onPressed: effectiveOnTap, child: child);
   }
 }
